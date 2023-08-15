@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 
 const HostVanPhotos = () => {
