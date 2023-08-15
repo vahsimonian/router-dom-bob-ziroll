@@ -10,7 +10,8 @@ const HostVanDetail = () => {
     fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setCurrentVan(data.vans))
-  }, [])
+  }, [id])
+  console.log(id)
 
   if (!currentVan) {
     return <h1>Loading...</h1>
