@@ -8,7 +8,7 @@ const HostVanPhotos = () => {
     <div>
       <img
         src={currentVan.imageUrl}
-        alt='van-image'
+        alt='van'
         width={'100px'}
         style={{ borderRadius: '5px' }}
       />
