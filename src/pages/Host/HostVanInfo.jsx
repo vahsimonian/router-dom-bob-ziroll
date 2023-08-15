@@ -3,7 +3,6 @@ import { useOutletContext } from 'react-router-dom'
 
 const HostVanInfo = () => {
   const [currentVan] = useOutletContext()
-  console.log(currentVan)
 
   return (
     <section>

@@ -10,7 +10,6 @@ const VanDetail = () => {
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
-      // .then((data) => console.log(data))
       .then((data) => setVan(data.vans))
   }, [params.id])
 

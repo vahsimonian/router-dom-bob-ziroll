@@ -16,7 +16,7 @@ const HostVans = () => {
       key={van.id}
       className='host-van-link-wrapper'
     >
-      <div className='host-van-single' key={van.id}>
+      <div className='host-van-single'>
         <img src={van.imageUrl} alt={`hey ${van.name}`} />
         <div className='host-van-info'>
           <h3>{van.name}</h3>
