@@ -1,10 +1,5 @@
 import About from './pages/About'
 import Home from './pages/Home'
-import './index.css'
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import './server'
 import Vans from './pages/Vans/Vans'
 import VanDetail from './pages/Vans/VanDetail'
 import Layout from './components/Layout'
@@ -17,7 +12,10 @@ import HostVanDetail from './pages/Host/HostVanDetail'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
-import Error from './components/Error'
+import Error from './pages/Error'
+import './server'
+import './index.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (

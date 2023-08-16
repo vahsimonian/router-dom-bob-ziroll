@@ -4,7 +4,6 @@ import { useParams, Link, useLocation } from 'react-router-dom'
 const VanDetail = () => {
   const [van, setVan] = useState([])
   const location = useLocation()
-  console.log(location)
   const params = useParams()
 
   useEffect(() => {
