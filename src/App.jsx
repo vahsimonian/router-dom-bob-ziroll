@@ -17,6 +17,7 @@ import HostVanDetail from './pages/Host/HostVanDetail'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
+import Error from './components/Error'
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path='photos' element={<HostVanPhotos />} />
             </Route>
           </Route>
+          <Route path='*' element={<Error />} />
         </Route>
       </Routes>
     </BrowserRouter>

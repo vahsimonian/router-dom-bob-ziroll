@@ -18,8 +18,15 @@ export default function Vans() {
     : vans
 
   const vanElements = detailEls.map((van) => (
-    <Link to={`/vans/${van.id}`} key={van.id}>
-      <div key={van.id} className='van-tile'>
+    <Link
+      to={van.id}
+      key={van.id}
+      state={{
+        search: `?${searchParams.toString()}`,
+        type: typeFilter,
+      }}
+    >
+      <div className='van-tile'>
         <img src={van.imageUrl} alt={`of`} />
         <div className='van-info'>
           <h3>{van.name}</h3>
