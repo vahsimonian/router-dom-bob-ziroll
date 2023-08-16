@@ -3,8 +3,6 @@ import { useParams } from 'react-router'
 
 const VanDetail = () => {
   const [van, setVan] = useState([])
-  const [order, setOrder] = useState(false)
-  const [orderBtn, setOrderBtn] = useState('Rent this van')
   const params = useParams()
 
   useEffect(() => {
@@ -12,13 +10,6 @@ const VanDetail = () => {
       .then((res) => res.json())
       .then((data) => setVan(data.vans))
   }, [params.id])
-
-  const rentThisVan = () => {
-    setOrderBtn('Ordering...')
-    setTimeout(() => {
-      setOrder(!order)
-    }, 1000)
-  }
 
   return (
     <div className='van-detail-container'>
@@ -32,9 +23,7 @@ const VanDetail = () => {
           </p>
           <p>{van.description}</p>
 
-          <button onClick={rentThisVan} className='link-button'>
-            {order ? 'Congratulations with you order!' : orderBtn}
-          </button>
+          <button className='link-button'>Order</button>
         </div>
       ) : (
         <h2>Loading...</h2>

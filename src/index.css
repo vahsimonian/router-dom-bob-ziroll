@@ -5,7 +5,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffead0;
+  background-color: #fff7ed;
   font-family: 'Inter', sans-serif;
 }
 a {
@@ -141,6 +141,7 @@ header a:hover {
 .van-list-container {
   padding-inline: 23px;
 }
+
 .van-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -148,38 +149,47 @@ header a:hover {
   gap: 34px;
   margin-top: 57px;
 }
+
 .van-tile a {
   color: #161616;
   text-decoration: none;
 }
+
 .van-tile img {
-  max-width: 400px;
-  border-radius: 17.5px;
+  max-width: 100%;
+  border-radius: 5px;
 }
+
 .van-list-container button {
   margin-right: 20px;
   cursor: pointer;
 }
+
 .van-type {
   height: 34px;
   padding: 6px 26px;
-  background-color: #ffead0;
   font-style: normal;
   font-weight: 500;
   border: none;
   border-radius: 5px;
+  background-color: #ffead0;
   color: #4d4d4d;
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+  margin-inline: 1.5px;
 }
+
 .van-type:hover {
   color: #ffead0;
 }
+
 .van-type:focus {
   outline: none;
 }
+
 .van-type.selected {
   color: #ffead0;
 }
+
 .van-type.simple:hover,
 .van-type.simple.selected {
   background-color: #e17654;
@@ -198,14 +208,15 @@ header a:hover {
 .van-type.clear-filters {
   margin-left: -20px;
   height: 34px;
-  padding: 6px 26px;
+  padding: 2.5px 20px;
   font-style: normal;
   font-weight: 500;
   border: none;
   border-radius: 5px;
   text-decoration: underline;
-  background-color: transparent;
-  color: #4d4d4d;
+  background-color: rgb(209, 159, 118);
+  color: #fff;
+  margin-left: 20px;
 }
 
 i[class*='van-type-'] {
@@ -214,42 +225,66 @@ i[class*='van-type-'] {
 
 .van-detail-container {
   padding: 27px;
-  /* margin-bottom: 50px; */
 }
+
 .van-detail-container .back-button {
   color: black;
   text-decoration: none;
 }
+
+.van-type.simple:hover,
+.van-type.simple.selected {
+  background-color: #e17654;
+}
+
+.van-type.rugged:hover,
+.van-type.rugged.selected {
+  background-color: #115e59;
+}
+
+.van-type.luxury:hover,
+.van-type.luxury.selected {
+  background-color: #161616;
+}
+
 .van-detail-container .back-button span {
   text-decoration: underline;
 }
+
 .van-detail {
   display: flex;
   flex-direction: column;
   color: #161616;
 }
+
 .van-detail img {
-  border-radius: 15px;
+  border-radius: 5px;
   margin-block: 47px;
 }
+
 .van-detail h2 {
   font-size: 2rem;
   margin-bottom: 10px;
 }
+
 .van-detail > i {
   align-self: flex-start;
 }
+
 .van-detail .van-price {
   font-size: 1.25rem;
+  margin-bottom: 10px;
 }
+
 .van-detail .van-price span {
   font-weight: 700;
   font-size: 1.5rem;
 }
+
 .van-detail .link-button {
   background-color: #ff8c38;
   color: white;
-  font-size: 1.125rem[];
+  font-size: 1.125rem;
 }
 
 /*  Nav */
