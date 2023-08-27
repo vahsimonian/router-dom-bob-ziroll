@@ -71,8 +71,9 @@ export default function Vans() {
         </button>
         <button
           onClick={() => handleFilterChange('type', 'rugged')}
-          className={`van-type rugged 
-                        ${typeFilter === 'rugged' ? 'selected' : ''}`}
+          className={`van-type rugged ${
+            typeFilter === 'rugged' ? 'selected' : ''
+          }`}
         >
           Rugged
         </button>

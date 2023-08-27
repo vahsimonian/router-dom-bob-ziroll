@@ -29,7 +29,7 @@ const HostLayout = () => {
           style={({ isActive }) => (isActive ? activeStyles : null)}
           to='vans'
         >
-          Vans
+          Vans •
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyles : null)}

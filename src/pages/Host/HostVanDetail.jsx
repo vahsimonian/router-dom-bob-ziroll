@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router'
-import { Link, NavLink } from 'react-router-dom'
+import React from 'react'
+import { Link, Outlet, useLoaderData, NavLink } from 'react-router-dom'
+import { getHostVans } from '../../api'
+import { requireAuth } from '../../utils'
+
+export async function loader({ params, request }) {
+  await requireAuth(request)
+  return getHostVans(params.id)
+}
 
 const HostVanDetail = () => {
-  const { id } = useParams()
-  const [currentVan, setCurrentVan] = useState(null)
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans))
-  }, [id])
-
-  if (!currentVan) {
-    return <h1>Loading...</h1>
-  }
+  const currentVan = useLoaderData()
 
   return (
     <section>
@@ -33,27 +28,27 @@ const HostVanDetail = () => {
             <h4>${currentVan.price}/day</h4>
           </div>
         </div>
-        <div className='host-details'>
+        <nav className='host-details'>
           <NavLink
             className={({ isActive }) => (isActive ? 'active-link' : null)}
             to='.'
           >
-            <p>Details</p>
+            Details
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? 'active-link' : null)}
             to='pricing'
           >
-            <p>Pricing</p>
+            Pricing
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? 'active-link' : null)}
             to='photos'
           >
-            <p>Photos</p>
+            Photos
           </NavLink>
-        </div>
-        <Outlet context={[currentVan]} />
+        </nav>
+        <Outlet context={{ currentVan }} />
       </div>
     </section>
   )

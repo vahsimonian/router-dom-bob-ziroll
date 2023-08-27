@@ -1,8 +1,13 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
+import { getHostVans } from '../../api'
+
+export function loader() {
+  return getHostVans()
+}
 
 const HostVanPhotos = () => {
-  const [currentVan] = useOutletContext()
+  const { currentVan } = useOutletContext()
 
   return (
     <div>
