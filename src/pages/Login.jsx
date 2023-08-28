@@ -18,8 +18,10 @@ export async function action({ request }) {
   const password = formData.get('password')
   const pathname =
     new URL(request.url).searchParams.get('redirectTo') || '/host'
+  console.log(pathname)
   try {
-    const data = await loginUser({ email, password })
+    let data = await loginUser({ email, password })
+    console.log(data)
     localStorage.setItem('loggedin', true)
     return redirect('/host')
   } catch (error) {
@@ -34,6 +36,7 @@ export default function Login() {
 
   return (
     <div className='login-container'>
+      <h6>login - b@b.com</h6> <h6>password - p123</h6>
       <h1>Sign in to your account</h1>
       {message && <h3 className='red'>{message}</h3>}
       {errorMessage && <h3 className='red'>{errorMessage.message}</h3>}

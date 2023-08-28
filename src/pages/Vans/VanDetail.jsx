@@ -1,23 +1,20 @@
-import React from 'react'
-import { Link, useLocation, useLoaderData } from 'react-router-dom'
-import { getVans } from '../../api'
+import React, { Suspense } from 'react'
+import { Link, useLocation, useLoaderData, Await } from 'react-router-dom'
+import { getVan } from '../../api'
 
 export function loader({ params }) {
-  return getVans(params.id)
+  return { van: getVan(params.id) }
 }
 
 const VanDetail = () => {
   const location = useLocation()
-  const van = useLoaderData()
+  const dataPromise = useLoaderData()
 
   const search = location.state?.search || ''
   const type = location.state?.type || 'all'
 
-  return (
-    <div className='van-detail-container'>
-      <Link to={`..${search}`} className='back-button' relative='path'>
-        &larr; <span>Back to {type}</span>
-      </Link>
+  function vanElements(van) {
+    return (
       <div className='van-detail'>
         <img src={van.imageUrl} alt='data' />
         <i className={`van-type ${van.type} selected`}>{van.type}</i>
@@ -29,6 +26,17 @@ const VanDetail = () => {
 
         <button className='link-button'>Order</button>
       </div>
+    )
+  }
+
+  return (
+    <div className='van-detail-container'>
+      <Link to={`..${search}`} className='back-button' relative='path'>
+        &larr; <span>Back to {type}</span>
+      </Link>
+      <Suspense fallback={<h2>Loading the details...</h2>}>
+        <Await resolve={dataPromise.van}>{vanElements}</Await>
+      </Suspense>
     </div>
   )
 }
